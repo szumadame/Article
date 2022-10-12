@@ -38,17 +38,6 @@ public class Article {
     @NotNull
     private Date published_date;
 
-    @Column(name="section", nullable = false)
-    @Getter
-    @Setter
-    @NotNull
-    private String section;
-
-    @Column(name="subsection")
-    @Getter
-    @Setter
-    private String subsection;
-
     @Column(name="abstract")
     @Getter
     @Setter

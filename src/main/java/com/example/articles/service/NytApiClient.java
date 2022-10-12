@@ -17,8 +17,8 @@ public class NytApiClient {
 
     public JSONArray getArticlesTable() throws JSONException {
 
-        String yourKey = "47sRHjANoPNZ5lu1szOvlgjn4GeGzxI9";
-        String Url = "https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=" + yourKey;
+        String yourKey = "2c69e07d17b542e28efc65b2d4fc62f3";
+        String Url = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=" + yourKey;
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity entity = new HttpEntity(headers);
@@ -26,7 +26,7 @@ public class NytApiClient {
 
         if (articleList.getStatusCode() == HttpStatus.OK) {
             jsonObject = new JSONObject(articleList.getBody());
-            jsonArray = jsonObject.getJSONArray("results");
+            jsonArray = jsonObject.getJSONArray("articles");
         }
         return jsonArray;
     }

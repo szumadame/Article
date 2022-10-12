@@ -3,8 +3,6 @@ CREATE TABLE `article` (
   `uri` MEDIUMTEXT NOT NULL,
   `title` MEDIUMTEXT NOT NULL,
   `published_date` DATE NOT NULL,
-  `section` TINYTEXT NOT NULL,
-  `subsection` TINYTEXT NULL,
   `abstract` MEDIUMTEXT NULL,
   `author` TINYTEXT NULL,
   PRIMARY KEY (`article_id`),

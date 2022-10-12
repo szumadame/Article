@@ -8,4 +8,5 @@ public class ApplicationConfiguration {
     public NytApiClient NytApiClient() {
         return new NytApiClient();
     }
+
 }

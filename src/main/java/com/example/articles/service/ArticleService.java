@@ -33,14 +33,12 @@ public class ArticleService{
         for (int i = 0; i<jsonArray.length(); i++){
             Article article = new Article();
             article.setId((long) (i+1));
-            article.setUri(jsonArray.getJSONObject(i).get("uri").toString());
+            article.setUri(jsonArray.getJSONObject(i).get("url").toString());
             article.setTitle(jsonArray.getJSONObject(i).get("title").toString());
-            Date dateInString = formatter.parse(String.valueOf(jsonArray.getJSONObject(i).get("published_date")));
+            Date dateInString = formatter.parse(String.valueOf(jsonArray.getJSONObject(i).get("publishedAt")));
             article.setPublished_date(dateInString);
-            article.setSection(jsonArray.getJSONObject(i).get("section").toString());
-            article.setSubsection(jsonArray.getJSONObject(i).get("subsection").toString());
-            article.setArticle_abstract(jsonArray.getJSONObject(i).get("abstract").toString());
-            article.setAuthor(jsonArray.getJSONObject(i).get("byline").toString());
+            article.setArticle_abstract(jsonArray.getJSONObject(i).get("description").toString());
+            article.setAuthor(jsonArray.getJSONObject(i).get("author").toString());
             articleRepository.save(article);
         }
     }
@@ -59,9 +57,11 @@ public class ArticleService{
         return titleList;
     }
 
+    public String getArticleUriById(Long id){
+        return articleRepository.findById(id).get().getUri();
+    }
+
+    public String getArticleTitleById(Long id){
+        return articleRepository.findById(id).get().getTitle();
+    }
 }
-//
-//   .filter(a)
-//           .collect(Collectors.toList())
-//           .forEach(Article::getTitle);
-//           titleList.addAll()
