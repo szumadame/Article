@@ -24,23 +24,20 @@ public class EmailController {
     private static final Logger LOG = LoggerFactory.getLogger(EmailController.class);
 
     @GetMapping("/email/{articleId}/{userEmail}")
-    public @ResponseBody ResponseEntity sendEmail(@PathVariable Long articleId, @PathVariable String userEmail){
+    public @ResponseBody ResponseEntity sendEmail(@PathVariable Long articleId, @PathVariable String userEmail) {
         String uri = articleService.getArticleUriById(articleId);
         String title = articleService.getArticleTitleById(articleId);
         String message = "Enjoy your article, here is the title and uri " + "\n" + title + "\n" + uri;
-        if (uri!=null){
-        try{
-            emailService.sendMail(message, userEmail);
-        } catch (MailException mailException) {
-            LOG.error("Error while sending out email..{}", mailException.getStackTrace());
-            return new ResponseEntity<>("Unable to send email", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        }
-        else {
+        if (uri != null) {
+            try {
+                emailService.sendMail(message, userEmail);
+            } catch (MailException mailException) {
+                LOG.error("Error while sending out email..{}", mailException.getStackTrace());
+                return new ResponseEntity<>("Unable to send email", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } else {
             return new ResponseEntity<>("There is no article to be sent", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>("Check your email", HttpStatus.OK);
     }
-
-
 }

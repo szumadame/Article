@@ -32,7 +32,7 @@ public class ArticleController {
     }
 
     @GetMapping(value = "/articles/apiResponse", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<String> getArticlesTable() throws JSONException{
+    ResponseEntity<String> getArticlesTable() throws JSONException {
         return ResponseEntity.ok(nytApiClient.getArticlesTable().toString());
     }
 
@@ -43,15 +43,12 @@ public class ArticleController {
     }
 
     @GetMapping("/articles/byId/{articleId}")
-    ResponseEntity<Optional<Article>> getArticleById(@PathVariable Long articleId){
+    ResponseEntity<Optional<Article>> getArticleById(@PathVariable Long articleId) {
         return ResponseEntity.ok(articleService.getArticleById(articleId));
     }
 
     @GetMapping("/articles/titles/table")
-    ResponseEntity<List<String>> getArticlesTitlesTable(){
+    ResponseEntity<List<String>> getArticlesTitlesTable() {
         return ResponseEntity.ok(articleService.getArticleTitlesTable());
     }
-
 }
-
-//@CrossOrigin(origins = "http://localhost:4200")

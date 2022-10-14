@@ -20,30 +20,30 @@ public class Article {
     @Setter
     private Long id;
 
-    @Column(name="uri", nullable = false)
+    @Column(name = "uri", nullable = false)
     @Getter
     @Setter
     @NotNull
     private String uri;
 
-    @Column(name="title", nullable = false)
+    @Column(name = "title", nullable = false)
     @Getter
     @Setter
     @NotNull
     private String title;
 
-    @Column(name="published_date", nullable = false)
+    @Column(name = "published_date", nullable = false)
     @Getter
     @Setter
     @NotNull
     private Date published_date;
 
-    @Column(name="abstract")
+    @Column(name = "abstract")
     @Getter
     @Setter
     private String article_abstract;
 
-    @Column(name="author")
+    @Column(name = "author")
     @NotNull
     @Getter
     @Setter

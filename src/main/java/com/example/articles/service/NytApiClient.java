@@ -8,7 +8,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
 
-//@NoArgsConstructor
 public class NytApiClient {
 
     private static RestTemplate restTemplate = new RestTemplate();
@@ -30,5 +29,4 @@ public class NytApiClient {
         }
         return jsonArray;
     }
-
 }
