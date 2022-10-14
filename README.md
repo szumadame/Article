@@ -10,3 +10,6 @@ Project is created with:
 * Maven
 * MySQL
 * Flyway
+
+## Status
+Currently, project is not completed yet. The front-end needs to be done.
